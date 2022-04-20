@@ -6,7 +6,7 @@
 #    By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 20:55:11 by mandrade          #+#    #+#              #
-#    Updated: 2022/04/19 20:55:13 by mandrade         ###   ########.fr        #
+#    Updated: 2022/04/20 02:25:36 by mandrade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ FLAGS	=	-Wall -Wextra -Werror
 CC		=	gcc
 RM		=	rm -f
 
+# Mandatory #
 SRCS	=	ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isalnum.c \
 			ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c \
 			ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c \
@@ -27,21 +28,32 @@ SRCS	=	ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isalnum.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
+# BONUS - Linked lists #
+BONUS_S	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast \
+			ft_lstadd_back.c ft_lstdelone.c
+
+BONUS_O	=	$(BONUS_S:.c=.o)
+
 all:	$(NAME)
 
 $(NAME):    $(OBJS) $(INCLUDE)
 			ar -rcs $(NAME) $(OBJS)
 			ranlib  $(NAME)
 
+bonus:	$(NAME) $(BONUS_O)
+		ar -rcs $(NAME) $(BONUS_O)
+
 .c.o:	
 		$(CC) $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:	
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(BONUS_O)
 
 fclean:	clean
 		$(RM) $(NAME)
 
 re:		fclean all
+
+rebonus: fclean bonus
 
 .PHONY:		all clean fclean re bonus
