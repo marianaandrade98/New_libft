@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+         #
+#    By: mandrade <mandrade@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 20:55:11 by mandrade          #+#    #+#              #
-#    Updated: 2022/04/20 02:25:36 by mandrade         ###   ########.fr        #
+#    Updated: 2022/04/20 04:16:25 by mandrade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,9 @@ SRCS	=	ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isalnum.c \
 OBJS	=	$(SRCS:.c=.o)
 
 # BONUS - Linked lists #
-BONUS_S	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast \
-			ft_lstadd_back.c ft_lstdelone.c
+BONUS_S	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+			ft_lstmap.c
 
 BONUS_O	=	$(BONUS_S:.c=.o)
 

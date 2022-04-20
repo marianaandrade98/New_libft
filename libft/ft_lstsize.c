@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mandrade <mandrade@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 02:01:19 by mandrade          #+#    #+#             */
-/*   Updated: 2022/04/20 02:06:56 by mandrade         ###   ########.fr       */
+/*   Updated: 2022/04/20 04:00:43 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	while (!lst)
+	while (lst)
 	{
 		lst = lst->next;
 		i++;

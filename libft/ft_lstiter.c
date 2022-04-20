@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 02:08:17 by mandrade          #+#    #+#             */
-/*   Updated: 2022/04/20 03:52:52 by mandrade         ###   ########.fr       */
+/*   Created: 2022/04/20 04:09:14 by mandrade          #+#    #+#             */
+/*   Updated: 2022/04/20 04:15:43 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst)
-		return (0);
+	if (!lst || !f)
+		return ;
 	while (lst)
 	{
-		if (lst->next == NULL)
-			return (lst);
+		f(lst->content);
 		lst = lst->next;
 	}
-	return (lst);
 }
